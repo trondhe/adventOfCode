@@ -1,4 +1,4 @@
-fn inv_captcha(vec: Vec<u32>) -> u32 {
+pub fn inv_captcha(vec: Vec<u32>) -> u32 {
     let vec_len = vec.len();
     if vec_len <= 1 {
         return 0;
@@ -26,7 +26,7 @@ fn add_if_same(val_to_add: &u32, val_to_comp: &u32, sum: &mut u32) {
     }
 }
 
-fn str2vec(input: &str) -> Vec<u32> {
+pub fn str2vec(input: &str) -> Vec<u32> {
     let string = String::from(input);
     let mut vec = vec![];
     for c in string.chars() {
