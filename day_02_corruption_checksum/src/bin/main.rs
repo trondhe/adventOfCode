@@ -4,6 +4,7 @@ use day_02_corruption_checksum::corr_checksum;
 use std::fs::File;
 use std::io::prelude::*;
 
+
 fn main() {
     let filename = "puzzle.txt";
     let mut file = File::open(filename).expect("file not found");

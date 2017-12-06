@@ -14,6 +14,7 @@ pub fn high_entropy_pass(input: &str) -> bool {
     true
 }
 
+
 #[cfg(test)]
 mod tests {
     use super::*;

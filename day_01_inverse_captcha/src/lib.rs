@@ -1,3 +1,6 @@
+extern crate utils;
+use utils::str2vec_u32;
+
 pub fn inv_captcha(vec: Vec<u32>) -> u32 {
     let vec_len = vec.len();
     if vec_len <= 1 {
@@ -26,15 +29,6 @@ fn add_if_same(val_to_add: &u32, val_to_comp: &u32, sum: &mut u32) {
     }
 }
 
-pub fn str2vec(input: &str) -> Vec<u32> {
-    let string = String::from(input);
-    let mut vec = vec![];
-    for c in string.chars() {
-        vec.push(c.to_digit(10).unwrap());
-    }
-    vec
-}
-
 
 #[cfg(test)]
 mod inv_captcha_test {
@@ -42,7 +36,7 @@ mod inv_captcha_test {
 
 
     fn ic_assert(input: &str, expected: u32) {
-        let input = str2vec(input);
+        let input = str2vec_u32(input);
         let answer = inv_captcha(input);
         assert_eq!(answer, expected);
     }
@@ -85,36 +79,5 @@ mod inv_captcha_test {
     #[test]
     fn given_91212129_return_9() {
         ic_assert("91212129", 9)
-    }
-}
-
-
-#[cfg(test)]
-mod str2vec_test {
-    use super::*;
-
-    fn str2vec_assert(input: &str, answer: Vec<u32>) {
-        let result = str2vec(&input);
-        assert_eq!(result, answer)
-    }
-
-    #[test]
-    fn given_empty_return_empty() {
-        str2vec_assert("", vec![])
-    }
-
-    #[test]
-    fn assert_one() {
-        str2vec_assert("1", vec![1])
-    }
-
-    #[test]
-    fn assert_oneone() {
-        str2vec_assert("11", vec![1, 1])
-    }
-
-    #[test]
-    fn assert_stuff() {
-        str2vec_assert("192837465", vec![1, 9, 2, 8, 3, 7, 4, 6, 5])
     }
 }

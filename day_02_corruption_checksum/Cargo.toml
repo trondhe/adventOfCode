@@ -4,3 +4,4 @@ version = "0.1.0"
 authors = ["DESKTOP-MV7TC7D\\Trond <trondhe@gmail.com>"]
 
 [dependencies]
+utils = {path = "../utils"}

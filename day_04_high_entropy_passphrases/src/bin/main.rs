@@ -1,13 +1,12 @@
 extern crate day_04_high_entropy_passphrases;
+extern crate utils;
+
 use day_04_high_entropy_passphrases::high_entropy_pass;
+use utils::str2linevec;
 
 use std::fs::File;
 use std::io::prelude::*;
 
-fn str2linevec(string: &str) -> Vec<&str> {
-    let lines: Vec<&str> = string.split("\r\n").collect();
-    lines
-}
 
 fn main() {
     let filename = "puzzle.txt";
