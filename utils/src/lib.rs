@@ -1,3 +1,14 @@
+use std::fs::File;
+use std::io::prelude::*;
+
+pub fn file2str(filename: &str) -> String {
+    let mut file = File::open(filename).expect("file not found");
+    let mut string = String::new();
+    file.read_to_string(&mut string)
+        .expect("error reading file");
+    string
+}
+
 pub fn str2vec_u32(input: &str) -> Vec<u32> {
     let string = String::from(input);
     let mut vec = vec![];
