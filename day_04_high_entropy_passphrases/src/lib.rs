@@ -1,6 +1,5 @@
 pub fn high_entropy_pass(input: &str) -> bool {
     let string_array: Vec<&str> = input.split(' ').collect();
-    let mut counter = 0;
     for (ind1, string1) in string_array.iter().enumerate() {
         for (ind2, string2) in string_array.iter().enumerate() {
             if ind1 == ind2 {
